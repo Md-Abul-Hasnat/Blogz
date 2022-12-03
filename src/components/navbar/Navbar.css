@@ -1,0 +1,152 @@
+nav {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  border-bottom: 0.5px solid rgb(187, 184, 184);
+  background-color: rgb(225, 222, 222);
+}
+
+nav .nav-menu {
+  transition: right 0.7s;
+  display: flex;
+}
+
+nav .logo {
+  text-decoration: none;
+}
+
+nav .logo h1 {
+  font-size: 2.5rem;
+  color: var(--heading-clr);
+}
+
+nav li {
+  width: fit-content;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0 25px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: var(--heading-clr);
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav li a:hover {
+  color: var(--highlight-clr);
+}
+
+nav .fa-bars {
+  display: none;
+}
+
+.fa-xmark {
+  display: none;
+}
+
+nav .nav-menu li .auth-btn {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--highlight-clr);
+  background-color: var(--highlight-clr);
+  color: white;
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  nav .logo h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  nav {
+    padding: 0 25px;
+  }
+  nav li {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    overflow-x: hidden;
+  }
+  nav .logo h1 {
+    font-size: 2rem;
+  }
+
+  nav .nav-menu {
+    background-color: var(--heading-clr);
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    text-align: center;
+    z-index: 100;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  nav li {
+    padding: 35px 0 35px 0;
+  }
+
+  nav li a {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-clr);
+  }
+
+  nav li a:hover::after {
+    width: 0;
+  }
+
+  nav .fa-bars {
+    display: block;
+    cursor: pointer;
+    font-size: 25px;
+    color: var(--heading-clr);
+  }
+
+  .fa-xmark {
+    display: block;
+    width: fit-content;
+    font-size: 28px;
+    position: absolute;
+    top: 20px;
+    right: 27px;
+    cursor: pointer;
+    color: var(--text-clr);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  nav .logo h1 {
+    font-size: 1.7rem;
+  }
+  nav {
+    height: 10vh;
+  }
+  .fa-xmark {
+    top: 15px;
+    right: 28px;
+    cursor: pointer;
+  }
+}
