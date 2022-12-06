@@ -5,8 +5,19 @@ import "swiper/css/pagination";
 import "./Home.css";
 import HomeBlog from "../../components/HomeBlog/HomeBlog";
 import HomeRightPart from "../../components/HomeRightPart/HomeRightPart";
+import { useContext } from "react";
+import { GlobalContext } from "../../components/context/MainContext";
+import Loader from "../../components/Loader/Loader";
+import { Link } from "react-router-dom";
+import uuid from "react-uuid";
 
 const Home = () => {
+  const { blogs, loading } = useContext(GlobalContext);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <section className="home">
       <section className="hero-swiper">
@@ -34,48 +45,33 @@ const Home = () => {
               spaceBetween: 15,
             },
           }}
-          grabCursor={true}
           pagination={{
             clickable: true,
           }}
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide className="SwiperSlide">
-            <div className="swiper-blog-details">
-              <p>Politics</p>
-              <h1>How to buy bulb on a tight budget</h1>
-              <div className="blog-date">
-                <small>author</small>
-                <small>august 24,2022</small>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="SwiperSlide">
-            <div className="swiper-blog-details">
-              <h1>Test</h1>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="SwiperSlide">
-            <div className="swiper-blog-details">
-              <h1>Test</h1>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="SwiperSlide">
-            <div className="swiper-blog-details">
-              <h1>Test</h1>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="SwiperSlide">
-            <div className="swiper-blog-details">
-              <h1>Test</h1>
-            </div>
-          </SwiperSlide>
+          {blogs.slice(0, 8).map((blog) => {
+            const { title, imgUrl, cetagory, author, date, uniqueID } = blog;
+            return (
+              <SwiperSlide key={uuid()} className="SwiperSlide">
+                <div className="image">
+                  <img src={imgUrl} alt="Image" />
+                  <div className="overlay"></div>
+                </div>
+                <div className="swiper-blog-details">
+                  <p>{cetagory}</p>
+                  <h1>{title.slice(0, 45)}...</h1>
+                  <Link to={`/blogDetail/${uniqueID}`}>Read more</Link>
+                </div>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </section>
 
       <section className="main-section">
-        <h1>Recent Blogs :</h1>
+        <h1>Latest Blogs :</h1>
         <div className="main-section-wrapper">
           <div className="blog-section">
             <HomeBlog />

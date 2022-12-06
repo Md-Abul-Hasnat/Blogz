@@ -6,9 +6,26 @@ import {
   faFacebookF,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import img from "../../assets/img/blog1.jpg";
+import { useContext } from "react";
+import { GlobalContext } from "../context/MainContext";
+import { Link } from "react-router-dom";
 
 const HomeRightPart = () => {
+  const cetagories = [
+    "Education",
+    "Programming",
+    "Religion",
+    "Gaming",
+    "Politics",
+    "Sports",
+  ];
+
+  const { blogs } = useContext(GlobalContext);
+
+  const popularBlogs = blogs.filter(
+    (blog) => blog.cetagory === "Religion" || blog.cetagory === "Programming"
+  );
+
   return (
     <div className="right-section">
       <div className="about-blogz">
@@ -29,47 +46,33 @@ const HomeRightPart = () => {
       <div className="explore-topics">
         <h1>Explore Topics</h1>
         <ul>
-          <li>
-            <small>Culture</small> <small>1</small>
-          </li>
-          <li>
-            <small>Sports</small> <small>1</small>
-          </li>
-          <li>
-            <small>Religion</small> <small>1</small>
-          </li>
-          <li>
-            <small>Games</small> <small>1</small>
-          </li>
-          <li>
-            <small>Politics</small> <small>1</small>
-          </li>
+          {cetagories.map((cetagory, i) => {
+            return (
+              <Link key={i} to={`/cetagory/${cetagory}`}>
+                <small>{cetagory}</small>
+                <small>
+                  {blogs.filter((blog) => blog.cetagory === cetagory).length}
+                </small>
+              </Link>
+            );
+          })}
         </ul>
       </div>
 
       <div className="popular-posts">
-        <h1>Popular Posts</h1>
-        <article>
-          <img src={img} alt="Popular blog" />
-          <div className="detail">
-            <h4>3 Easy Ways To Make Your iPhone Faster</h4>
-            <p>26 August 2022</p>
-          </div>
-        </article>
-        <article>
-          <img src={img} alt="Popular blog" />
-          <div className="detail">
-            <h4>3 Easy Ways To Make Your iPhone Faster</h4>
-            <p>26 August 2022</p>
-          </div>
-        </article>
-        <article>
-          <img src={img} alt="Popular blog" />
-          <div className="detail">
-            <h4>3 Easy Ways To Make Your iPhone Faster</h4>
-            <p>26 August 2022</p>
-          </div>
-        </article>
+        <h1>Popular Blogs</h1>
+        {popularBlogs.slice(0, 5).map((blog, i) => {
+          const { title, imgUrl, date, uniqueID } = blog;
+          return (
+            <Link to={`/blogDetail/${uniqueID}`} key={i}>
+              <img src={imgUrl} alt="Popular blog" />
+              <div className="detail">
+                <h4>{title} </h4>
+                <p> {date} </p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

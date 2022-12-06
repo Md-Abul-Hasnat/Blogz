@@ -1,6 +1,7 @@
 .blog-card {
   width: 100%;
   border: 0.5px solid lightgray;
+  cursor: pointer;
 }
 
 .blog-card:hover .top img {
@@ -27,8 +28,9 @@
 
 .top img {
   width: 100%;
+  height: 230px;
   object-fit: cover;
-  transition: 0.7s;
+  transition: 1s;
 }
 
 .blog-card .bottom {
@@ -57,6 +59,20 @@
   color: var(--text-clr);
 }
 
+.view-btn {
+  width: fit-content;
+  text-decoration: none;
+  background-color: var(--heading-clr);
+  color: var(--main-clr);
+  padding: 10px 70px;
+  margin-top: 10px;
+  transition: 0.5s;
+}
+
+.view-btn:hover {
+  background-color: var(--highlight-clr);
+}
+
 @media screen and (max-width: 900px) {
   .bottom .info p {
     font-size: 0.9rem;
@@ -69,6 +85,13 @@
     font-size: 0.9rem;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .view-btn {
+    padding: 8px 30px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .bottom .info p {
     font-size: 0.8rem;

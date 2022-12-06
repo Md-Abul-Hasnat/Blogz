@@ -40,24 +40,24 @@
   margin-bottom: 35px;
 }
 
-.explore-topics ul li {
+.explore-topics ul a {
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px solid lightgrey;
   padding-bottom: 12px;
 }
-.explore-topics ul li:last-child {
+.explore-topics ul a:last-child {
   border-bottom: none;
 }
 
-.explore-topics ul li small {
+.explore-topics ul a small {
   font-size: 1.2rem;
   color: var(--text-clr);
   transition: 0.3s;
   cursor: pointer;
 }
-.explore-topics ul li small:hover {
+.explore-topics ul a small:hover {
   color: var(--heading-clr);
 }
 
@@ -74,9 +74,8 @@
   color: var(--heading-clr);
 }
 
-.popular-posts article {
+.popular-posts a {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 20px;
   padding: 10px 0px 20px;
@@ -84,22 +83,23 @@
   border-bottom: 0.5px solid lightgrey;
   cursor: pointer;
 }
-.popular-posts article:last-child {
+.popular-posts a:last-child {
   border-bottom: none;
 }
 
-.popular-posts article img {
+.popular-posts a img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--heading-clr);
 }
 
-.popular-posts article h4 {
+.popular-posts a h4 {
   font-size: 1rem;
   margin-bottom: 5px;
 }
-.popular-posts article p {
+.popular-posts a p {
   font-size: 0.9rem;
 }
 
@@ -120,7 +120,7 @@
   .popular-posts h1 {
     font-size: 1.5rem;
   }
-  .popular-posts article h4 {
+  .popular-posts a h4 {
     font-size: 0.9rem;
   }
 }
@@ -139,11 +139,11 @@
     margin-bottom: 30px;
   }
 
-  .popular-posts article {
+  .popular-posts a {
     justify-content: flex-start;
   }
 
-  .popular-posts article h4 {
+  .popular-posts a h4 {
     font-size: 1.1rem;
   }
 }
@@ -158,15 +158,15 @@
     margin-top: 80px;
   }
 
-  .popular-posts article h4 {
+  .popular-posts a h4 {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 300px) {
-  .popular-posts article h4 {
+  .popular-posts a h4 {
     font-size: 0.9rem;
   }
-  .popular-posts article p {
+  .popular-posts a p {
     font-size: 0.8rem;
   }
 }

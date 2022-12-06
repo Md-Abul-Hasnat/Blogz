@@ -25,4 +25,10 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -10,10 +10,12 @@ import { auth } from "../../components/Firebase";
 import { useContext } from "react";
 import { GlobalContext } from "../../components/context/MainContext";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+
   const { setUser } = useContext(GlobalContext);
 
   const [forgotPassword, setForgotPassword] = useState(false);
@@ -45,22 +47,16 @@ const Auth = () => {
         })
           .then(() => {
             localStorage.setItem("user", JSON.stringify(user));
-            toast.success("User created successfully", {
-              autoClose: 2000,
-            });
-            navigate("/");
+            toast.success("User created successfully");
+            location.state ? navigate(location.state.from) : navigate("/");
           })
           .catch((error) => {
-            toast.error("Failed to create account", {
-              autoClose: 2000,
-            });
+            toast.error(error);
           });
       })
       .catch((error) => {
         const errorMessage = error.message;
-        toast.error(errorMessage, {
-          autoClose: 2000,
-        });
+        toast.error(errorMessage);
       });
   }
 
@@ -71,16 +67,12 @@ const Auth = () => {
         const user = userCredential.user;
         setUser(user);
         localStorage.setItem("user", JSON.stringify(user));
-        toast.success("Signed in successfully", {
-          autoClose: 2000,
-        });
-        navigate("/");
+        toast.success("Signed in successfully");
+        location.state ? navigate(location.state.from) : navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        toast.error(errorMessage, {
-          autoClose: 2000,
-        });
+        toast.error(errorMessage);
       });
   }
 
@@ -88,15 +80,11 @@ const Auth = () => {
     e.preventDefault();
     sendPasswordResetEmail(auth, resetEmail)
       .then(() => {
-        toast.success("Check your email", {
-          autoClose: 2000,
-        });
+        toast.success("Check your email");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        toast.error(errorMessage, {
-          autoClose: 2000,
-        });
+        toast.error(errorMessage);
       });
   }
 

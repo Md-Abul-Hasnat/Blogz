@@ -131,3 +131,8 @@ form p:hover {
     padding: 10px 0;
   }
 }
+@media screen and (max-width: 400px) {
+  form input[type="submit"] {
+    font-size: 0.9rem;
+  }
+}
