@@ -10,6 +10,7 @@ import { GlobalContext } from "../../components/context/MainContext";
 import Loader from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import uuid from "react-uuid";
+import RecentBlogCetagory from "../../components/RecentBlogCetagory/RecentBlogCetagory";
 
 const Home = () => {
   const { blogs, loading } = useContext(GlobalContext);
@@ -79,6 +80,13 @@ const Home = () => {
           <div className="home-right">
             <HomeRightPart />
           </div>
+        </div>
+      </section>
+
+      <section className="recent-blogs-cetegory">
+        <h1>Popular Cetagories :</h1>
+        <div className="recent-blogs-cetegory-wrapper">
+          <RecentBlogCetagory />
         </div>
       </section>
     </section>

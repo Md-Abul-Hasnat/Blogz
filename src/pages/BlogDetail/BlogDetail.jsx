@@ -18,6 +18,10 @@ const BlogDetail = () => {
 
   const { author, cetagory, description, date, imgUrl, title } = targetedBlog;
 
+  function reduceText(text, length) {
+    return text.slice(0, length);
+  }
+
   return (
     <section className="blog-detail">
       <div className="blog-detail-wrapper">
@@ -51,9 +55,19 @@ const BlogDetail = () => {
                   className="releted-blog"
                 >
                   <div className="top">
-                    <img src={imgUrl} alt="image" />
+                    <img src={imgUrl} alt="blog" />
+                    <p className="cetagory-name">{cetagory} </p>
                   </div>
-                  <h2>{title}</h2>
+                  <div className="bottom">
+                    <div className="info">
+                      <p> {author} </p>
+                      <p> {date} </p>
+                    </div>
+                    <h2 className="blog-title">{reduceText(title, 30)}...</h2>
+                    <p className="blog-text">
+                      {reduceText(description, 80)}...
+                    </p>
+                  </div>
                 </Link>
               );
             })}

@@ -4,7 +4,7 @@
 }
 
 .blog-detail-wrapper {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 68% 29%;
@@ -41,7 +41,7 @@
 }
 
 .releted-blogs-wrapper {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -53,6 +53,7 @@
   height: 100%;
   border: 0.5px solid lightgray;
   overflow: hidden;
+  position: relative;
 }
 
 .releted-blogs-wrapper .releted-blog:hover.releted-blog img {
@@ -61,7 +62,6 @@
 
 .releted-blog h2 {
   font-size: 1.1rem;
-  padding: 10px;
   line-height: 1.5;
   color: var(--heading-clr);
 }
@@ -71,23 +71,29 @@
   height: 200px;
   overflow: hidden;
 }
+
+.releted-blog .top .cetagory-name {
+  position: absolute;
+}
+
 .releted-blog img {
   width: 100%;
   height: 100%;
   transition: 0.5s;
 }
 
+.releted-blog .bottom {
+  padding: 0 10px 10px;
+}
+
 .releted-blogs > h1 {
   margin: 60px 0 30px;
   font-size: 2rem;
   color: var(--heading-clr);
-  margin-left: 7.5%;
+  margin-left: 5%;
 }
 
 @media screen and (max-width: 1000px) {
-  .blog-detail-wrapper {
-    width: 90%;
-  }
   .blog-detali-left h1 {
     font-size: 1.9rem;
   }
@@ -103,8 +109,7 @@
   }
 
   .releted-blogs-wrapper {
-    width: 90%;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     row-gap: 20px;
   }
@@ -122,6 +127,15 @@
     grid-template-columns: 100%;
     gap: 0;
     row-gap: 40px;
+  }
+  .releted-blogs-wrapper {
+    width: 85%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    row-gap: 20px;
+  }
+  .releted-blogs > h1 {
+    margin-left: 7.5%;
   }
 }
 
@@ -142,6 +156,10 @@
   .blog-detali-left img {
     height: 300px;
   }
+  .releted-blogs-wrapper {
+    width: 90%;
+    gap: 10px;
+  }
   .releted-blog .top {
     height: 200px;
   }
@@ -150,9 +168,10 @@
   }
   .releted-blogs > h1 {
     font-size: 1.5rem;
+    margin-left: 5%;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .blog-detali-left h1 {
     font-size: 1.3rem;
   }
@@ -164,6 +183,16 @@
   }
   .releted-blog h2 {
     font-size: 0.9rem;
+  }
+
+  .releted-blogs > h1 {
+    margin-left: 7.5%;
+  }
+  .releted-blogs-wrapper {
+    width: 85%;
+    grid-template-columns: 1fr;
+    gap: 0;
+    row-gap: 20px;
   }
 }
 @media screen and (max-width: 350px) {
@@ -181,11 +210,5 @@
   }
   .blog-detali-left p {
     font-size: 0.8rem;
-  }
-  .releted-blogs-wrapper {
-    width: 90%;
-    grid-template-columns: 1fr;
-    gap: 0;
-    row-gap: 15px;
   }
 }

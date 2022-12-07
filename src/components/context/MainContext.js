@@ -16,7 +16,9 @@ const MainContext = ({ children }) => {
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "blogs"), (snapshot) => {
       const allBlogs = [];
-      snapshot.docs.forEach((doc) => allBlogs.push(doc.data()));
+      snapshot.docs.forEach((doc) => {
+        allBlogs.push({ id: doc.id, ...doc.data() });
+      });
       setBlogs(allBlogs);
       setLoading(false);
     });
@@ -25,7 +27,6 @@ const MainContext = ({ children }) => {
       unsub();
     };
   }, []);
-
   return (
     <GlobalContext.Provider value={{ setUser, user, blogs, loading }}>
       {children}
