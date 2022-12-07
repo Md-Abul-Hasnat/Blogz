@@ -41,7 +41,7 @@ const HomeBlog = () => {
           </div>
         </div>
       </div>
-      {blogs.slice(0, 6).map((blog) => {
+      {blogs.slice(0, 8).map((blog) => {
         const {
           title,
           imgUrl,

@@ -33,16 +33,12 @@ const Home = () => {
               spaceBetween: 10,
             },
 
-            700: {
+            800: {
               slidesPerView: 3,
               spaceBetween: 20,
             },
             900: {
               slidesPerView: 3,
-              spaceBetween: 25,
-            },
-            1000: {
-              slidesPerView: 4,
               spaceBetween: 15,
             },
           }}
@@ -53,7 +49,7 @@ const Home = () => {
           className="mySwiper"
         >
           {blogs.slice(0, 8).map((blog) => {
-            const { title, imgUrl, cetagory, author, date, uniqueID } = blog;
+            const { title, imgUrl, cetagory, date, uniqueID } = blog;
             return (
               <SwiperSlide key={uuid()} className="SwiperSlide">
                 <div className="image">
@@ -63,7 +59,7 @@ const Home = () => {
                 <div className="swiper-blog-details">
                   <p>{cetagory}</p>
                   <h1>{title.slice(0, 45)}...</h1>
-                  <Link to={`/blogDetail/${uniqueID}`}>Read more</Link>
+                  <Link to={`/blogDetail/${uniqueID}`}>Read more.. </Link>
                 </div>
               </SwiperSlide>
             );
@@ -72,7 +68,7 @@ const Home = () => {
       </section>
 
       <section className="main-section">
-        <h1>Latest Blogs :</h1>
+        <h1>Recent Blogs :</h1>
         <div className="main-section-wrapper">
           <div className="blog-section">
             <HomeBlog />

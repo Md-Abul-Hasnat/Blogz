@@ -37,7 +37,11 @@ const Create = () => {
   async function handleBlogSubmit(e) {
     e.preventDefault();
 
-    if (blogData.cetagory && blogData.imgUrl) {
+    if (
+      blogData.cetagory &&
+      blogData.imgUrl &&
+      blogData.description.length > 100
+    ) {
       try {
         await addDoc(collection(db, "blogs"), {
           ...blogData,
@@ -57,6 +61,9 @@ const Create = () => {
       } catch (e) {
         toast.error("Error creating blog");
       }
+    }
+    if (blogData.description.length < 100) {
+      toast.error("Blog description must contain more words");
     }
   }
 
