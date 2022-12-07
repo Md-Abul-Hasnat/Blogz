@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   padding: 35px 0px;
-  background-color: var(--heading-clr);
+  background-color: rgb(203, 199, 199);
 }
 
 .footer-wrapper {
@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  color: var(--main-clr);
+  color: var(--heading-clr);
 }
 
 .footer-left h1 {
@@ -35,7 +35,7 @@
 }
 
 .footer-left .social-icons .icon {
-  color: var(--main-clr);
+  color: var(--heading-clr);
   margin-right: 40px;
   transition: 0.4s;
 }
@@ -56,16 +56,16 @@
 }
 
 .footer-right article a {
-  color: var(--main-clr);
+  color: var(--heading-clr);
   text-decoration: none;
 }
 
 .footer-right article .icon {
   font-size: 1.4rem;
-  background-color: lightgray;
+  background-color: var(--heading-clr);
   padding: 6px;
   border-radius: 10px;
-  color: var(--heading-clr);
+  color: rgb(203, 199, 199);
 }
 
 @media screen and (max-width: 900px) {
