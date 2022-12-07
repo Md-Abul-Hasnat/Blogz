@@ -111,7 +111,7 @@ nav .nav-menu li .auth-btn {
   nav li a {
     font-size: 1.3rem;
     font-weight: 500;
-    color: var(--text-clr);
+    color: white;
   }
 
   nav li a:hover::after {
@@ -133,7 +133,7 @@ nav .nav-menu li .auth-btn {
     top: 20px;
     right: 27px;
     cursor: pointer;
-    color: var(--text-clr);
+    color: white;
   }
 }
 

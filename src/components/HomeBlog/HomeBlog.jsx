@@ -10,7 +10,7 @@ import { db } from "../Firebase";
 import { useState } from "react";
 
 const HomeBlog = () => {
-  const { blogs, user } = useContext(GlobalContext);
+  const { blogs, user, updateBlog } = useContext(GlobalContext);
   const [isDelete, setIsDelete] = useState({ value: false, id: "" });
 
   function reduceText(text, length) {
@@ -76,7 +76,11 @@ const HomeBlog = () => {
             {user.uid === blog.userID ? (
               <>
                 <div className="blog-bottom-icon">
-                  <FontAwesomeIcon className="icon" icon={faEdit} />
+                  <FontAwesomeIcon
+                    onClick={() => updateBlog(id)}
+                    className="icon"
+                    icon={faEdit}
+                  />
                   <FontAwesomeIcon
                     onClick={() =>
                       setIsDelete({ value: !isDelete.value, id: id })

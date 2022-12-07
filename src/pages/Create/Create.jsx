@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db, storage } from "../../components/Firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import "./Create.css";
 import { toast } from "react-toastify";
 import { useContext } from "react";
@@ -14,7 +14,17 @@ const Create = () => {
   const location = useLocation();
   const date = new Date().toDateString();
 
-  const { user } = useContext(GlobalContext);
+  const {
+    user,
+    blogData,
+    setBlogData,
+    file,
+    setFile,
+    isUpdate,
+    setIsUpdate,
+    setBlogId,
+    blogId,
+  } = useContext(GlobalContext);
 
   const cetagories = [
     "Education",
@@ -24,15 +34,6 @@ const Create = () => {
     "Politics",
     "Sports",
   ];
-
-  const [blogData, setBlogData] = useState({
-    title: ``,
-    cetagory: ``,
-    imgUrl: ``,
-    description: ``,
-  });
-
-  const [file, setFile] = useState(null);
 
   async function handleBlogSubmit(e) {
     e.preventDefault();
@@ -89,6 +90,21 @@ const Create = () => {
     });
   }
 
+  async function handleBlogUpdate(e) {
+    e.preventDefault();
+    try {
+      const blogRef = doc(db, "blogs", blogId);
+      await updateDoc(blogRef, blogData);
+      toast.success("Blog updated successfully!!");
+      navigate("/");
+      setBlogId(null);
+      setIsUpdate(false);
+      setBlogData({ title: ``, cetagory: ``, imgUrl: ``, description: `` });
+    } catch (error) {
+      toast.error("Something went wrong!!");
+    }
+  }
+
   useEffect(() => {
     file && uploadImg();
   }, [file]);
@@ -98,8 +114,8 @@ const Create = () => {
       {user.uid ? (
         <section className="create-blog">
           <div className="create-wrapper">
-            <h1>Create Blog</h1>
-            <form onSubmit={handleBlogSubmit}>
+            <h1> {isUpdate ? "Update" : "Create"} Blog</h1>
+            <form onSubmit={isUpdate ? handleBlogUpdate : handleBlogSubmit}>
               <input
                 onChange={handleInputChange}
                 type="text"
@@ -141,7 +157,11 @@ const Create = () => {
                 value={blogData.description}
                 required
               ></textarea>
-              <input className="btn" type="submit" value={"Submit"} />
+              <input
+                className="btn"
+                type="submit"
+                value={isUpdate ? "Update" : "Submit"}
+              />
             </form>
           </div>
         </section>
