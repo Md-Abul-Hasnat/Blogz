@@ -1,0 +1,45 @@
+.navigate {
+  margin-left: 7.5%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  margin-top: -15px;
+}
+
+.navigate p {
+  border: 0.5px solid lightgray;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .navigate {
+    margin-left: 5%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .navigate {
+    margin-left: 7.5%;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .navigate {
+    margin-left: 5%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .navigate {
+    margin-left: 10%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navigate {
+    margin-left: 7.5%;
+  }
+  .navigate p {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+}

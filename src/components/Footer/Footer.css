@@ -1,7 +1,8 @@
 .footer {
   width: 100%;
   padding: 35px 0px;
-  background-color: rgb(203, 199, 199);
+  background-color: var(--main-clr);
+  border-top: 1px solid var(--heading-clr);
 }
 
 .footer-wrapper {
