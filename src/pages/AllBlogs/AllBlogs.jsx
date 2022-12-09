@@ -10,23 +10,25 @@ import {
   faEdit,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import { db } from "../../components/Firebase";
-import { deleteDoc, doc } from "firebase/firestore";
+import { useEffect } from "react";
 
 const AllBlogs = () => {
-  const { blogs, user, updateBlog } = useContext(GlobalContext);
+  const {
+    blogs,
+    user,
+    updateBlog,
+    handleDelete,
+    setIsDelete,
+    isDelete,
+    reduceText,
+    setBlogs,
+  } = useContext(GlobalContext);
 
   const [showBlog, setShowBlog] = useState(blogs.slice(0, 12));
-  const [isDelete, setIsDelete] = useState({ value: false, id: "" });
 
-  function reduceText(text, length) {
-    return text.slice(0, length);
-  }
-
-  async function handleDelete(id) {
-    await deleteDoc(doc(db, "blogs", `${id}`));
-    setIsDelete({ value: false, id: "" });
-  }
+  useEffect(() => {
+    setShowBlog(blogs);
+  }, [blogs]);
 
   return (
     <>
@@ -37,6 +39,27 @@ const AllBlogs = () => {
           <div className="overlay"></div>
         </div>
         <div className="specific-cetagory-wrapper">
+          <div
+            className={
+              isDelete.value ? "delete-warning" : "delete-warning disabled"
+            }
+          >
+            <div className="delete-warning-wrapper">
+              <h1>Do you want to delete this blog ?</h1>
+              <div className="buttons">
+                <button
+                  onClick={() =>
+                    setIsDelete({ value: !isDelete.value, id: "" })
+                  }
+                >
+                  Cencel
+                </button>
+                <button onClick={() => handleDelete(isDelete.id)}>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
           {showBlog.map((blog) => {
             const {
               title,
@@ -50,11 +73,11 @@ const AllBlogs = () => {
             } = blog;
 
             return (
-              <>
-                <Link to={`/blogDetail/${uniqueID}`} className="blog-card">
+              <article key={uniqueID} className="main-blog-card">
+                <Link to={`/blogDetail/${uniqueID}`} className="all-blog-card">
                   <div className="top">
                     <img src={imgUrl} alt="blog" />
-                    <p className="cetagory-name">{cetagory} </p>
+                    <p className="cetagory-name">{cetagory}</p>
                   </div>
                   <div className="bottom">
                     <div className="info">
@@ -73,7 +96,27 @@ const AllBlogs = () => {
                     </p>
                   </div>
                 </Link>
-              </>
+                {user.uid === blog.userID ? (
+                  <>
+                    <div className="blog-bottom-icon">
+                      <FontAwesomeIcon
+                        onClick={() => updateBlog(id)}
+                        className="icon"
+                        icon={faEdit}
+                      />
+                      <FontAwesomeIcon
+                        onClick={() =>
+                          setIsDelete({ value: !isDelete.value, id: id })
+                        }
+                        className="icon"
+                        icon={faTrash}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+              </article>
             );
           })}
         </div>

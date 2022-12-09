@@ -1,3 +1,27 @@
+.all-blog-card {
+  width: 100%;
+}
+.all-blog-card .top {
+  width: 100%;
+  position: relative;
+}
+
+.all-blog-card .bottom {
+  padding: 0 15px 15px;
+}
+
+.cetagory-name {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border: 0.5px solid var(--highlight-clr);
+  background-color: var(--highlight-clr);
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
 .navigate {
   margin-left: 7.5%;
   display: flex;

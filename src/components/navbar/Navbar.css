@@ -5,8 +5,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  border-bottom: 0.5px solid rgb(187, 184, 184);
-  background-color: rgb(225, 222, 222);
+  background-color: var(--heading-clr);
 }
 
 nav .nav-menu {
@@ -20,7 +19,7 @@ nav .logo {
 
 nav .logo h1 {
   font-size: 2.5rem;
-  color: var(--heading-clr);
+  color: var(--white-clr);
 }
 
 nav li {
@@ -32,7 +31,7 @@ nav li {
 
 nav li a {
   text-decoration: none;
-  color: var(--heading-clr);
+  color: var(--white-clr);
   font-size: 1.3rem;
   font-weight: 500;
   display: block;
@@ -61,7 +60,7 @@ nav .nav-menu li .auth-btn {
   font-size: 1rem;
   border: 1px solid var(--highlight-clr);
   background-color: var(--highlight-clr);
-  color: white;
+  color: var(--white-clr);
   transform: translateY(-4px);
   cursor: pointer;
 }
@@ -111,7 +110,7 @@ nav .nav-menu li .auth-btn {
   nav li a {
     font-size: 1.3rem;
     font-weight: 500;
-    color: white;
+    color: var(--white-clr);
   }
 
   nav li a:hover::after {
@@ -122,7 +121,7 @@ nav .nav-menu li .auth-btn {
     display: block;
     cursor: pointer;
     font-size: 25px;
-    color: var(--heading-clr);
+    color: var(--white-clr);
   }
 
   .fa-xmark {
@@ -133,7 +132,7 @@ nav .nav-menu li .auth-btn {
     top: 20px;
     right: 27px;
     cursor: pointer;
-    color: white;
+    color: var(--white-clr);
   }
 }
 

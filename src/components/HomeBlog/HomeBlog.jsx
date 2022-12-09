@@ -2,7 +2,6 @@ import "./HomeBlog.css";
 import { useContext } from "react";
 import { GlobalContext } from "../context/MainContext";
 import { Link } from "react-router-dom";
-import uuid from "react-uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEdit,
@@ -10,22 +9,17 @@ import {
   faUser,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
-import { doc, deleteDoc } from "firebase/firestore";
-import { db } from "../Firebase";
-import { useState } from "react";
 
 const HomeBlog = () => {
-  const { blogs, user, updateBlog } = useContext(GlobalContext);
-  const [isDelete, setIsDelete] = useState({ value: false, id: "" });
-
-  function reduceText(text, length) {
-    return text.slice(0, length);
-  }
-
-  async function handleDelete(id) {
-    await deleteDoc(doc(db, "blogs", `${id}`));
-    setIsDelete({ value: false, id: "" });
-  }
+  const {
+    blogs,
+    user,
+    updateBlog,
+    handleDelete,
+    setIsDelete,
+    isDelete,
+    reduceText,
+  } = useContext(GlobalContext);
 
   return (
     <>
@@ -60,11 +54,7 @@ const HomeBlog = () => {
 
         return (
           <article key={id} className="main-blog-card">
-            <Link
-              to={`/blogDetail/${uniqueID}`}
-              key={uuid()}
-              className="blog-card"
-            >
+            <Link to={`/blogDetail/${uniqueID}`} className="blog-card">
               <div className="top">
                 <img src={imgUrl} alt="blog" />
                 <p className="cetagory-name">{cetagory} </p>

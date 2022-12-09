@@ -1,8 +1,9 @@
 import { useState, createContext } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useEffect } from "react";
 import { db } from "../Firebase";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const GlobalContext = createContext();
 
@@ -23,6 +24,7 @@ const MainContext = ({ children }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [loading, setLoading] = useState(true);
   const [blogId, setBlogId] = useState(null);
+  const [isDelete, setIsDelete] = useState({ value: false, id: "" });
 
   function updateBlog(id) {
     setBlogId(id);
@@ -39,6 +41,16 @@ const MainContext = ({ children }) => {
     });
   }
 
+  async function handleDelete(id) {
+    await deleteDoc(doc(db, "blogs", `${id}`));
+    setIsDelete({ value: false, id: "" });
+    toast.success("Blog deleted");
+  }
+
+  function reduceText(text, length) {
+    return text.slice(0, length);
+  }
+
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "blogs"), (snapshot) => {
       const allBlogs = [];
@@ -53,15 +65,21 @@ const MainContext = ({ children }) => {
       unsub();
     };
   }, []);
+
   return (
     <GlobalContext.Provider
       value={{
+        reduceText,
         setUser,
         setBlogData,
         setFile,
         updateBlog,
         setIsUpdate,
         setBlogId,
+        handleDelete,
+        setIsDelete,
+        setBlogs,
+        isDelete,
         user,
         blogs,
         loading,

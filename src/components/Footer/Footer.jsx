@@ -18,7 +18,9 @@ const Footer = () => {
     <section className="footer">
       <div className="footer-wrapper">
         <div className="footer-left">
-          <h1>BLOGZ</h1>
+          <Link to={"/"}>
+            <h1>BLOGZ</h1>
+          </Link>
           <h3>
             <Link to={"/"}>Privacy policy</Link>
           </h3>
