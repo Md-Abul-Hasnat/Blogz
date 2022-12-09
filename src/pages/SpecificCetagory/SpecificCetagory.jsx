@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { GlobalContext } from "../../components/context/MainContext";
 import img from "../../assets/img/img.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import "./SpecificCetagory.css";
 
 const SpecificCetagory = () => {
@@ -53,8 +53,12 @@ const SpecificCetagory = () => {
               </div>
               <div className="bottom">
                 <div className="info">
-                  <p> {author} </p>
-                  <p> {date} </p>
+                  <p>
+                    <FontAwesomeIcon className="icon" icon={faUser} /> {author}
+                  </p>
+                  <p>
+                    <FontAwesomeIcon className="icon" icon={faClock} /> {date}
+                  </p>
                 </div>
                 <h2 className="blog-title">{reduceText(title, 60)}...</h2>
                 <p className="blog-text">{reduceText(description, 140)}...</p>

@@ -29,6 +29,15 @@
   margin: 20px 0;
 }
 
+.blog-detali-left p {
+  color: var(--heading-clr);
+}
+
+.blog-detali-left .icon {
+  font-size: 0.8rem;
+  margin: 0 3px;
+}
+
 .blog-detali-left .desc {
   font-size: 1.2rem;
   line-height: 1.6;
@@ -84,6 +93,11 @@
 
 .releted-blog .bottom {
   padding: 0 10px 10px;
+}
+
+.releted-blog .bottom .info .icon {
+  margin-right: 5px;
+  font-size: 0.9rem;
 }
 
 .releted-blogs > h1 {
@@ -210,5 +224,8 @@
   }
   .blog-detali-left p {
     font-size: 0.8rem;
+  }
+  .blog-detali-left .icon {
+    font-size: 0.7rem;
   }
 }

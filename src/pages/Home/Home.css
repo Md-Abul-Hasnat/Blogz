@@ -78,6 +78,11 @@
   color: white;
 }
 
+.swiper-blog-details .icon {
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
 .swiper-blog-details a {
   display: block;
   width: fit-content;

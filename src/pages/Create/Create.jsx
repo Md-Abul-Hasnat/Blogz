@@ -10,9 +10,28 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
 
 const Create = () => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
   const navigate = useNavigate();
   const location = useLocation();
-  const date = new Date().toDateString();
+  const date = new Date();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const day = date.getDate();
+  const finalDate = `${day < 10 ? "0" + day : day} ${months[month]} ${year}`;
 
   const {
     user,
@@ -48,7 +67,7 @@ const Create = () => {
           ...blogData,
           author: user.displayName,
           userID: user.uid,
-          date: date,
+          date: finalDate,
           uniqueID: uuid(),
         });
         toast.success("Blog created successfully");

@@ -11,6 +11,8 @@ import Loader from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import uuid from "react-uuid";
 import RecentBlogCetagory from "../../components/RecentBlogCetagory/RecentBlogCetagory";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const { blogs, loading } = useContext(GlobalContext);
@@ -45,11 +47,12 @@ const Home = () => {
           pagination={{
             clickable: true,
           }}
+          grabCursor={true}
           modules={[Pagination]}
           className="mySwiper"
         >
           {blogs.slice(0, 8).map((blog) => {
-            const { title, imgUrl, cetagory, date, uniqueID } = blog;
+            const { title, imgUrl, cetagory, uniqueID } = blog;
             return (
               <SwiperSlide key={uuid()} className="SwiperSlide">
                 <div className="image">
@@ -59,7 +62,10 @@ const Home = () => {
                 <div className="swiper-blog-details">
                   <p>{cetagory}</p>
                   <h1>{title.slice(0, 45)}...</h1>
-                  <Link to={`/blogDetail/${uniqueID}`}>Read more.. </Link>
+                  <Link to={`/blogDetail/${uniqueID}`}>
+                    Read more
+                    <FontAwesomeIcon className="icon" icon={faArrowRight} />
+                  </Link>
                 </div>
               </SwiperSlide>
             );

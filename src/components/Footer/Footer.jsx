@@ -11,6 +11,7 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -18,11 +19,10 @@ const Footer = () => {
       <div className="footer-wrapper">
         <div className="footer-left">
           <h1>BLOGZ</h1>
-          <h3>About the company</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et sequi,
-            aliquam odit facere necessitatibus quas rerum qui non in. Totam?
-          </p>
+          <h3>
+            <Link to={"/"}>Privacy policy</Link>
+          </h3>
+          <p>© Copyright 2022 All rights reserved by BLOGZ </p>
           <div className="social-icons">
             <FontAwesomeIcon className="icon" icon={faFacebookF} />
             <FontAwesomeIcon className="icon" icon={faTwitter} />
@@ -30,7 +30,25 @@ const Footer = () => {
             <FontAwesomeIcon className="icon" icon={faLinkedinIn} />
           </div>
         </div>
+        <div className="footer-center">
+          <h2>Useful Links </h2>
+          <ul>
+            <li>
+              <Link to={"/"}> Home </Link>
+            </li>
+            <li>
+              <Link to={"/about"}>About</Link>
+            </li>
+            <li>
+              <Link to={"/create"}>Create</Link>
+            </li>
+            <li>
+              <Link to={"/allblogs"}> All Blogs</Link>
+            </li>
+          </ul>
+        </div>
         <div className="footer-right">
+          <h2>Contact Info</h2>
           <article>
             <FontAwesomeIcon className="icon" icon={faLocationDot} />
             <p>Uposhohar, Sylhet, Bangladesh</p>

@@ -43,9 +43,17 @@
 
 .bottom .info {
   display: flex;
+  color: var(--text-clr);
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+}
+
+.info p {
+  font-size: 0.9rem;
+}
+
+.info p .icon {
+  margin-right: 3px;
 }
 
 .bottom .blog-title {
@@ -89,54 +97,6 @@
 
 .view-btn:hover {
   background-color: var(--highlight-clr);
-}
-
-.delete-warning {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.delete-warning-wrapper {
-  width: 500px;
-  height: 300px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 10px black;
-}
-
-.delete-warning-wrapper h1 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.delete-warning-wrapper .buttons {
-  display: flex;
-  gap: 30px;
-}
-
-.buttons button {
-  padding: 8px 20px;
-  background-color: var(--heading-clr);
-  color: white;
-  border: none;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.disabled {
-  display: none;
 }
 
 @media screen and (max-width: 900px) {

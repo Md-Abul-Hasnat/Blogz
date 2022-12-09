@@ -4,7 +4,12 @@ import { GlobalContext } from "../context/MainContext";
 import { Link } from "react-router-dom";
 import uuid from "react-uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEdit,
+  faTrash,
+  faUser,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 import { useState } from "react";
@@ -66,8 +71,12 @@ const HomeBlog = () => {
               </div>
               <div className="bottom">
                 <div className="info">
-                  <p> {author} </p>
-                  <p> {date} </p>
+                  <p>
+                    <FontAwesomeIcon className="icon" icon={faUser} /> {author}
+                  </p>
+                  <p>
+                    <FontAwesomeIcon className="icon" icon={faClock} /> {date}
+                  </p>
                 </div>
                 <h2 className="blog-title">{reduceText(title, 60)}...</h2>
                 <p className="blog-text">{reduceText(description, 140)}...</p>

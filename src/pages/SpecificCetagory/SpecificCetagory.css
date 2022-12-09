@@ -1,5 +1,6 @@
 .specific-cetagory {
   width: 100%;
+  background-color: var(--main-clr);
 }
 
 .specific-cetagory-head {

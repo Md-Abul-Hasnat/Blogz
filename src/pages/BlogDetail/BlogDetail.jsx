@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { GlobalContext } from "../../components/context/MainContext";
 import HomeRightPart from "../../components/HomeRightPart/HomeRightPart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import "./BlogDetail.css";
 
 const BlogDetail = () => {
@@ -32,7 +34,8 @@ const BlogDetail = () => {
 
           <h1>{title}</h1>
           <p>
-            {author} / {date}
+            <FontAwesomeIcon className="icon" icon={faUser} /> {author} /
+            <FontAwesomeIcon className="icon" icon={faClock} /> {date}
           </p>
           <img src={imgUrl} alt="blog image" />
           <p className="desc"> {description}</p>
@@ -60,8 +63,14 @@ const BlogDetail = () => {
                   </div>
                   <div className="bottom">
                     <div className="info">
-                      <p> {author} </p>
-                      <p> {date} </p>
+                      <p>
+                        <FontAwesomeIcon className="icon" icon={faUser} />
+                        {author}
+                      </p>
+                      <p>
+                        <FontAwesomeIcon className="icon" icon={faClock} />
+                        {date}
+                      </p>
                     </div>
                     <h2 className="blog-title">{reduceText(title, 30)}...</h2>
                     <p className="blog-text">

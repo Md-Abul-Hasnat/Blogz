@@ -11,9 +11,36 @@
     />
 
     <title>React App</title>
+    <style>
+      .spiner {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+      }
+      .spiner img {
+        width: 700px;
+      }
+      @media screen and (max-width: 700px) {
+        .spiner img {
+          width: 500px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .spiner img {
+          width: 400px;
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="spiner">
+        <img src="./Loading.gif" alt="loading" />
+      </div>
+    </div>
   </body>
 </html>
