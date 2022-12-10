@@ -10,10 +10,17 @@ import {
   faFacebookF,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section className="about">
+    <motion.section
+      className="about"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="specific-cetagory-head">
         <img src={img} alt="background img" />
         <h1> ABOUT US </h1>
@@ -65,7 +72,7 @@ const About = () => {
           <HomeRightPart />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

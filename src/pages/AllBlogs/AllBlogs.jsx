@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../components/context/MainContext";
 import "./AllBlogs.css";
@@ -12,7 +12,7 @@ import {
   faEdit,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const AllBlogs = () => {
   const {
@@ -33,7 +33,12 @@ const AllBlogs = () => {
   }, [blogs]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <section className="specific-cetagory">
         <div className="specific-cetagory-head">
           <img src={img} alt="background img" />
@@ -181,7 +186,7 @@ const AllBlogs = () => {
           )}
         </div>
       </section>
-    </>
+    </motion.div>
   );
 };
 

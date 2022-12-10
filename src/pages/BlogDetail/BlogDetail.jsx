@@ -5,6 +5,7 @@ import HomeRightPart from "../../components/HomeRightPart/HomeRightPart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import "./BlogDetail.css";
+import { motion } from "framer-motion";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -25,7 +26,13 @@ const BlogDetail = () => {
   }
 
   return (
-    <section className="blog-detail">
+    <motion.section
+      className="blog-detail"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="blog-detail-wrapper">
         <div className="blog-detali-left">
           <small>
@@ -83,7 +90,7 @@ const BlogDetail = () => {
           </div>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 };
 

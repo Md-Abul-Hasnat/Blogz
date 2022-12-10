@@ -5,6 +5,7 @@ import img from "../../assets/img/img.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import "./SpecificCetagory.css";
+import { motion } from "framer-motion";
 
 const SpecificCetagory = () => {
   const { cetagoryName } = useParams();
@@ -23,7 +24,13 @@ const SpecificCetagory = () => {
   }
 
   return (
-    <section className="specific-cetagory">
+    <motion.section
+      className="specific-cetagory"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="specific-cetagory-head">
         <img src={img} alt="background img" />
         <h1> {cetagoryName} </h1>
@@ -67,7 +74,7 @@ const SpecificCetagory = () => {
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

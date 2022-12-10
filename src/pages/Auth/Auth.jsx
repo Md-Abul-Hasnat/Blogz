@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../components/context/MainContext";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Auth = () => {
   const location = useLocation();
@@ -89,7 +90,12 @@ const Auth = () => {
   }
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       {forgotPassword ? (
         <section className="forgot-pass">
           <h1>Please provide your email address.</h1>
@@ -153,7 +159,7 @@ const Auth = () => {
           </main>
         </section>
       )}
-    </>
+    </motion.div>
   );
 };
 

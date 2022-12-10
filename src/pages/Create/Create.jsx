@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../components/context/MainContext";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
+import { motion } from "framer-motion";
 
 const Create = () => {
   const months = [
@@ -129,7 +130,12 @@ const Create = () => {
   }, [file]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       {user.uid ? (
         <section className="create-blog">
           <div className="create-wrapper">
@@ -194,7 +200,7 @@ const Create = () => {
           </div>
         </section>
       )}
-    </>
+    </motion.div>
   );
 };
 

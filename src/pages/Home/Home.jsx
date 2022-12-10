@@ -13,6 +13,7 @@ import uuid from "react-uuid";
 import RecentBlogCetagory from "../../components/RecentBlogCetagory/RecentBlogCetagory";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const { blogs, loading } = useContext(GlobalContext);
@@ -22,7 +23,13 @@ const Home = () => {
   }
 
   return (
-    <section className="home">
+    <motion.section
+      className="home"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <section className="hero-swiper">
         <Swiper
           breakpoints={{
@@ -91,7 +98,7 @@ const Home = () => {
           <RecentBlogCetagory />
         </div>
       </section>
-    </section>
+    </motion.section>
   );
 };
 
