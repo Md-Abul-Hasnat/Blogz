@@ -27,10 +27,7 @@ const AllBlogs = () => {
   } = useContext(GlobalContext);
 
   const [showBlog, setShowBlog] = useState(blogs.slice(0, 12));
-
-  useEffect(() => {
-    setShowBlog(blogs);
-  }, [blogs]);
+  console.log(showBlog);
 
   return (
     <motion.div
