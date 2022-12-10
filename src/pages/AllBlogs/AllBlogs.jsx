@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../components/context/MainContext";
 import "./AllBlogs.css";
 import img from "../../assets/img/blog.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -76,7 +78,12 @@ const AllBlogs = () => {
               <article key={uniqueID} className="main-blog-card">
                 <Link to={`/blogDetail/${uniqueID}`} className="all-blog-card">
                   <div className="top">
-                    <img src={imgUrl} alt="blog" />
+                    <LazyLoadImage
+                      effect="blur"
+                      src={imgUrl}
+                      alt="blog"
+                      width={"100%"}
+                    />
                     <p className="cetagory-name">{cetagory}</p>
                   </div>
                   <div className="bottom">

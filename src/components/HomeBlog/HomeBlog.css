@@ -7,10 +7,6 @@
   width: 100%;
 }
 
-.blog-card:hover .top img {
-  transform: scale(1.2);
-}
-
 .blog-card .top {
   width: 100%;
   overflow: hidden;
@@ -33,7 +29,6 @@
   width: 100%;
   height: 230px;
   object-fit: cover;
-  transition: 1s;
 }
 
 .blog-card .bottom {

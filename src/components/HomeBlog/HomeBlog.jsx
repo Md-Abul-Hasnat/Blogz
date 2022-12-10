@@ -2,6 +2,8 @@ import "./HomeBlog.css";
 import { useContext } from "react";
 import { GlobalContext } from "../context/MainContext";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEdit,
@@ -56,7 +58,12 @@ const HomeBlog = () => {
           <article key={id} className="main-blog-card">
             <Link to={`/blogDetail/${uniqueID}`} className="blog-card">
               <div className="top">
-                <img src={imgUrl} alt="blog" />
+                <LazyLoadImage
+                  effect="blur"
+                  src={imgUrl}
+                  alt="blog"
+                  width={"100%"}
+                />
                 <p className="cetagory-name">{cetagory} </p>
               </div>
               <div className="bottom">
