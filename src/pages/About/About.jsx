@@ -16,9 +16,9 @@ const About = () => {
   return (
     <motion.section
       className="about"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -300, opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
       <div className="specific-cetagory-head">

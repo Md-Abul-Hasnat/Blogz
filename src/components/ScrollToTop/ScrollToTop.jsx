@@ -5,9 +5,7 @@ const ScrollToTop = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
-    setTimeout(() => {
-      document.documentElement.scrollTo(0, 0);
-    }, 280);
+    document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
   return <>{children}</>;
 };

@@ -84,11 +84,15 @@ form p:hover {
 
 .forgot-pass form > input {
   width: 300px;
+  padding: 6px;
 }
 
 .forgot-pass form > input[type="submit"] {
-  width: 300px;
-  padding: 10px 0;
+  width: fit-content;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  transform: translateX(50%);
 }
 
 @media screen and (max-width: 1200px) {
@@ -102,6 +106,19 @@ form p:hover {
   }
 }
 @media screen and (max-width: 830px) {
+  .forgot-pass h1 {
+    font-size: 1.1rem;
+  }
+  .forgot-pass form > input {
+    width: 300px;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+  .forgot-pass form > input[type="submit"] {
+    padding: 7px 15px;
+    font-size: 0.8rem;
+    margin-left: 20px;
+  }
   .auth-wrapper {
     width: 500px;
   }
@@ -116,6 +133,18 @@ form p:hover {
 }
 
 @media screen and (max-width: 450px) {
+  .forgot-pass h1 {
+    font-size: 1rem;
+  }
+  .forgot-pass form > input {
+    width: 250px;
+  }
+  .forgot-pass form > input[type="submit"] {
+    padding: 5px 13px;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    margin-top: 8px;
+  }
   .auth-wrapper {
     width: 90%;
   }
@@ -134,5 +163,20 @@ form p:hover {
 @media screen and (max-width: 400px) {
   form input[type="submit"] {
     font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .forgot-pass h1 {
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+  }
+  .forgot-pass form > input[type="submit"] {
+    margin-left: -25px;
+    margin-top: 5px;
+  }
+  .forgot-pass form > input {
+    width: 100%;
+    padding: 4px;
+    font-size: 0.8rem;
   }
 }

@@ -82,6 +82,7 @@ const Auth = () => {
     sendPasswordResetEmail(auth, resetEmail)
       .then(() => {
         toast.success("Check your email");
+        setResetEmail("");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -91,9 +92,9 @@ const Auth = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -300, opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
       {forgotPassword ? (
@@ -102,7 +103,7 @@ const Auth = () => {
           <form onSubmit={handleUpdatePassword}>
             <input
               onChange={handleResetEmail}
-              value={resetEmail.email}
+              value={resetEmail}
               placeholder="Email"
               type="email"
               required
