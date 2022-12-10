@@ -6,8 +6,8 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
   authDomain: "blogz-9530b.firebaseapp.com",
-  projectId: "blogz-9530b",
-  storageBucket: "blogz-9530b.appspot.com",
+  projectId: `${process.env.REACT_APP_FIREBASE_PROJECTID}`,
+  storageBucket: `${process.env.REACT_APP_FIREBASE_STORAGEBUCKET}`,
   messagingSenderId: `${process.env.REACT_APP_MESSAGINGSENDER_ID}`,
   appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`,
 };
