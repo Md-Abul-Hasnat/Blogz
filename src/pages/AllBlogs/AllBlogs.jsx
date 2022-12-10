@@ -23,11 +23,13 @@ const AllBlogs = () => {
     setIsDelete,
     isDelete,
     reduceText,
-    setBlogs,
   } = useContext(GlobalContext);
 
   const [showBlog, setShowBlog] = useState(blogs.slice(0, 12));
-  console.log(showBlog);
+
+  useEffect(() => {
+    setShowBlog(blogs.slice(0, 12));
+  }, [blogs]);
 
   return (
     <motion.div
@@ -99,7 +101,7 @@ const AllBlogs = () => {
                         {date}
                       </p>
                     </div>
-                    <h2 className="blog-title">{reduceText(title, 60)}...</h2>
+                    <h2 className="blog-title">{reduceText(title, 45)}...</h2>
                     <p className="blog-text">
                       {reduceText(description, 140)}...
                     </p>
@@ -132,52 +134,62 @@ const AllBlogs = () => {
 
         <div className="navigate">
           {blogs.length > 0 ? (
-            <p onClick={() => setShowBlog(blogs.slice(0, 12))}>1</p>
+            <p
+              onClick={() => {
+                setShowBlog(blogs.slice(0, 12));
+                document.documentElement.scrollTo(0, 0);
+              }}
+            >
+              1
+            </p>
           ) : (
             ""
           )}
           {blogs.length > 12 ? (
-            <p onClick={() => setShowBlog(blogs.slice(12, 24))}>2</p>
+            <p
+              onClick={() => {
+                setShowBlog(blogs.slice(12, 24));
+                document.documentElement.scrollTo(0, 0);
+              }}
+            >
+              2
+            </p>
           ) : (
             ""
           )}
           {blogs.length > 24 ? (
-            <p onClick={() => setShowBlog(blogs.slice(24, 36))}>3</p>
+            <p
+              onClick={() => {
+                setShowBlog(blogs.slice(24, 36));
+                document.documentElement.scrollTo(0, 0);
+              }}
+            >
+              3
+            </p>
           ) : (
             ""
           )}
           {blogs.length > 36 ? (
-            <p onClick={() => setShowBlog(blogs.slice(36, 48))}>4</p>
+            <p
+              onClick={() => {
+                setShowBlog(blogs.slice(36, 48));
+                document.documentElement.scrollTo(0, 0);
+              }}
+            >
+              4
+            </p>
           ) : (
             ""
           )}
           {blogs.length > 48 ? (
-            <p onClick={() => setShowBlog(blogs.slice(48, 60))}>5</p>
-          ) : (
-            ""
-          )}
-          {blogs.length > 60 ? (
-            <p onClick={() => setShowBlog(blogs.slice(60, 72))}>6</p>
-          ) : (
-            ""
-          )}
-          {blogs.length > 72 ? (
-            <p onClick={() => setShowBlog(blogs.slice(72, 84))}>5</p>
-          ) : (
-            ""
-          )}
-          {blogs.length > 84 ? (
-            <p onClick={() => setShowBlog(blogs.slice(84, 96))}>5</p>
-          ) : (
-            ""
-          )}
-          {blogs.length > 96 ? (
-            <p onClick={() => setShowBlog(blogs.slice(96, 108))}>5</p>
-          ) : (
-            ""
-          )}
-          {blogs.length > 108 ? (
-            <p onClick={() => setShowBlog(blogs.slice(108, 120))}>5</p>
+            <p
+              onClick={() => {
+                setShowBlog(blogs.slice(48, 60));
+                document.documentElement.scrollTo(0, 0);
+              }}
+            >
+              5
+            </p>
           ) : (
             ""
           )}

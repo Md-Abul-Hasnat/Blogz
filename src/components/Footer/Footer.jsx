@@ -14,6 +14,8 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const date = new Date();
+
   return (
     <section className="footer">
       <div className="footer-wrapper">
@@ -24,7 +26,9 @@ const Footer = () => {
           <h3>
             <Link to={"/"}>Privacy policy</Link>
           </h3>
-          <p>© Copyright 2022 All rights reserved by BLOGZ </p>
+          <p>
+            © Copyright {`${date.getFullYear()}`} All rights reserved by BLOGZ{" "}
+          </p>
           <div className="social-icons">
             <FontAwesomeIcon className="icon" icon={faFacebookF} />
             <FontAwesomeIcon className="icon" icon={faTwitter} />

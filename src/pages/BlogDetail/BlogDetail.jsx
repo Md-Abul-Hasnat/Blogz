@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 const BlogDetail = () => {
   const { id } = useParams();
-  const { blogs } = useContext(GlobalContext);
+  const { blogs, reduceText } = useContext(GlobalContext);
 
   const targetedBlog = blogs.find((blog) => blog.uniqueID === id);
 
@@ -20,10 +20,6 @@ const BlogDetail = () => {
   );
 
   const { author, cetagory, description, date, imgUrl, title } = targetedBlog;
-
-  function reduceText(text, length) {
-    return text.slice(0, length);
-  }
 
   return (
     <motion.section

@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 const SpecificCetagory = () => {
   const { cetagoryName } = useParams();
-  const { blogs } = useContext(GlobalContext);
+  const { blogs, reduceText } = useContext(GlobalContext);
   const [selectedCetagorys, setSelectedCetagory] = useState([]);
 
   useEffect(() => {
@@ -18,10 +18,6 @@ const SpecificCetagory = () => {
     );
     setSelectedCetagory(blogsCetagory);
   }, []);
-
-  function reduceText(text, length) {
-    return text.slice(0, length);
-  }
 
   return (
     <motion.section
