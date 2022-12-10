@@ -11,6 +11,7 @@ nav {
 nav .nav-menu {
   transition: right 0.7s;
   display: flex;
+  align-items: center;
 }
 
 nav .logo {
@@ -32,7 +33,8 @@ nav li {
 nav li a {
   text-decoration: none;
   color: var(--white-clr);
-  font-size: 1.3rem;
+  font-family: sans-serif;
+  font-size: 1.1rem;
   font-weight: 500;
   display: block;
   -webkit-tap-highlight-color: transparent;
@@ -53,15 +55,12 @@ nav .fa-bars {
 }
 
 nav .nav-menu li .auth-btn {
-  font-size: 1.3rem;
-  font-weight: 500;
-  padding: 7px 12px;
-  border-radius: 10px;
-  font-size: 1rem;
-  border: 1px solid var(--highlight-clr);
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: none;
   background-color: var(--highlight-clr);
   color: var(--white-clr);
-  transform: translateY(-4px);
   cursor: pointer;
 }
 
@@ -104,17 +103,12 @@ nav .nav-menu li .auth-btn {
   }
 
   nav li {
-    padding: 35px 0 35px 0;
+    padding: 30px 0;
   }
 
   nav li a {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    color: var(--white-clr);
-  }
-
-  nav li a:hover::after {
-    width: 0;
   }
 
   nav .fa-bars {
@@ -134,6 +128,9 @@ nav .nav-menu li .auth-btn {
     cursor: pointer;
     color: var(--white-clr);
   }
+  nav .nav-menu li .auth-btn {
+    padding: 10px 18px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -147,5 +144,11 @@ nav .nav-menu li .auth-btn {
     top: 15px;
     right: 28px;
     cursor: pointer;
+  }
+  nav li {
+    padding: 25px 0;
+  }
+  nav li a {
+    font-size: 1rem;
   }
 }

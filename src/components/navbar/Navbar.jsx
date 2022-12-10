@@ -1,10 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
 import { GlobalContext } from "../context/MainContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase";
@@ -43,28 +41,28 @@ const Navbar = () => {
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
           <Link onClick={handleClick} to="/">
-            Home
+            HOME
           </Link>
         </li>
 
         <li>
           <Link onClick={handleClick} to="/about">
-            About
+            ABOUT
           </Link>
         </li>
         <li>
           <Link onClick={handleClick} to="/create">
-            Create
+            CREATE
           </Link>
         </li>
         <li>
           {user.uid ? (
             <button onClick={logout} className="auth-btn">
-              Sign out
+              SIGN OUT
             </button>
           ) : (
             <Link className="auth-btn" onClick={handleClick} to="/auth">
-              Sign in
+              SIGN IN
             </Link>
           )}
         </li>
