@@ -23,6 +23,12 @@ const HomeBlog = () => {
     reduceText,
   } = useContext(GlobalContext);
 
+  const homeBlogs = blogs.filter(
+    (blog) =>
+      blog.cetagory === "Sports" ||
+      blog.cetagory === "Programming" ||
+      blog.cetagory === "Gaming"
+  );
   return (
     <>
       <div
@@ -42,7 +48,7 @@ const HomeBlog = () => {
           </div>
         </div>
       </div>
-      {blogs.slice(0, 8).map((blog) => {
+      {homeBlogs.slice(0, 8).map((blog) => {
         const {
           title,
           imgUrl,

@@ -18,12 +18,16 @@ const HomeRightPart = () => {
     "Gaming",
     "Politics",
     "Sports",
+    "Nature",
   ];
 
   const { blogs } = useContext(GlobalContext);
 
   const popularBlogs = blogs.filter(
-    (blog) => blog.cetagory === "Religion" || blog.cetagory === "Programming"
+    (blog) =>
+      blog.cetagory === "Religion" ||
+      blog.cetagory === "Programming" ||
+      blog.cetagory === "Nature"
   );
 
   return (

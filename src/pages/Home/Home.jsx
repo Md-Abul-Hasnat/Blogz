@@ -18,6 +18,14 @@ import { motion } from "framer-motion";
 const Home = () => {
   const { blogs, loading } = useContext(GlobalContext);
 
+  const swiperBlogs = blogs.filter(
+    (blog) =>
+      blog.cetagory === "Religion" ||
+      blog.cetagory === "Politics" ||
+      blog.cetagory === "Education" ||
+      blog.cetagory === "Nature"
+  );
+
   if (loading) {
     return <Loader />;
   }
@@ -58,7 +66,7 @@ const Home = () => {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {blogs.slice(0, 8).map((blog) => {
+          {swiperBlogs.slice(0, 8).map((blog) => {
             const { title, imgUrl, cetagory, uniqueID } = blog;
             return (
               <SwiperSlide key={uuid()} className="SwiperSlide">

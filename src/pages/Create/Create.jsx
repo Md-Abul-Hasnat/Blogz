@@ -53,6 +53,7 @@ const Create = () => {
     "Gaming",
     "Politics",
     "Sports",
+    "Nature",
   ];
 
   async function handleBlogSubmit(e) {
